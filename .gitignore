@@ -1,0 +1,22 @@
+# Binaries
+*.exe
+*.dll
+
+# Icons
+# We exclude the source generation scripts but keep the assets if needed
+# Assets/app.ico
+
+# Exceptions (Allow these specific binaries to be committed)
+!Bin/AwakeBuddy.exe
+
+# User specific
+*.user
+*.suo
+*.pdb
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
