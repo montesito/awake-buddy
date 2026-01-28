@@ -2,10 +2,10 @@
 
 # AwakeBuddy
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/montesito/awake-buddy)](https://github.com/montesito/awake-buddy/releases)
-[![GitHub license](https://img.shields.io/github/license/montesito/awake-buddy)](https://github.com/montesito/awake-buddy/blob/main/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/montesito/awake-buddy)](https://github.com/montesito/awake-buddy/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/montesito/awake-buddy)](https://github.com/montesito/awake-buddy/network)
+[![Versión](https://img.shields.io/badge/version-1.0-blue)](https://github.com/montesito/awake-buddy/releases)
+[![Licencia](https://img.shields.io/badge/license-MIT-green)](https://github.com/montesito/awake-buddy/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/montesito/awake-buddy?style=social)](https://github.com/montesito/awake-buddy/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/montesito/awake-buddy?style=social)](https://github.com/montesito/awake-buddy/network)
 
 
 **Versión 1.0** | [🇺🇸 Read in English](README.md)
