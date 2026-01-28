@@ -73,6 +73,10 @@ This project uses a modular PowerShell + XAML structure.
 [**Download AwakeBuddy.exe**](Bin/AwakeBuddy.exe)
 *(This executable is located in the `Bin/` folder and runs the utility without installation.)*
 
+> [!WARNING]
+> **Download Security Alert**: Because this is an unsigned `.exe` file, your browser or Windows may flag it as "suspicious".
+> **This is secure.** If you decide to download, please trust the file, follow the browser steps to "Keep" or "Run anyway", and **allow your antivirus to scan it** to verify its safety.
+
 ## Collaboration
 **Love this tool?**
 Contributions, issues, and feature requests are welcome! 

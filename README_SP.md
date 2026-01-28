@@ -73,6 +73,10 @@ Este proyecto utiliza una estructura modular de PowerShell + XAML.
 [**Descargar AwakeBuddy.exe**](Bin/AwakeBuddy.exe)
 *(Este ejecutable se encuentra en la carpeta `Bin/` y ejecuta la utilidad sin instalación.)*
 
+> [!WARNING]
+> **Alerta de Seguridad de Descarga**: Debido a que este es un archivo `.exe` sin firmar, su sistema o navegador puede marcarlo como "sospechoso".
+> **Es seguro.** Si decide descargarlo, por favor confíe en el archivo, siga los pasos para "Conservar" o "Ejecutar de todas formas", y **permita que su antivirus lo escanee** para verificar su seguridad.
+
 ## Colaboración
 **¿Te gusta esta herramienta?**
 ¡Las contribuciones, problemas y solicitudes de características son bienvenidas!
