@@ -6,7 +6,7 @@
 [![GitHub license](https://img.shields.io/github/license/montesito/awake-buddy)](https://github.com/montesito/awake-buddy/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/montesito/awake-buddy)](https://github.com/montesito/awake-buddy/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/montesito/awake-buddy)](https://github.com/montesito/awake-buddy/network)
-[![GitHub issues](https://img.shields.io/github/issues/montesito/awake-buddy)](https://github.com/montesito/awake-buddy/issues)
+
 
 **Versión 1.0** | [🇺🇸 Read in English](README.md)
 

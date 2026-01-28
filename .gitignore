@@ -20,3 +20,8 @@ Desktop.ini
 
 # Logs
 *.log
+
+# Build Scripts & Aux
+Build_Standalone.ps1
+GenerateAssetsFinal.ps1
+Env_Setup.ps1
