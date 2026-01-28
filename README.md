@@ -1,10 +1,21 @@
 ![AwakeBuddy Logo](Assets/app.png)
 
+# AwakeBuddy
+
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/montesito/awake-buddy)](https://github.com/montesito/awake-buddy/releases)
+[![GitHub license](https://img.shields.io/github/license/montesito/awake-buddy)](https://github.com/montesito/awake-buddy/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/montesito/awake-buddy)](https://github.com/montesito/awake-buddy/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/montesito/awake-buddy)](https://github.com/montesito/awake-buddy/network)
+[![GitHub issues](https://img.shields.io/github/issues/montesito/awake-buddy)](https://github.com/montesito/awake-buddy/issues)
+
+**Version 1.0** | [🇪🇸 Leer en Español](README_SP.md)
+
+> [!NOTE]
+> This application is designed exclusively for **Windows environments**. It has been extensively tested on **Windows 11**.
+
 *Prevent computer sleep modes with style.*
 
 ---
-
-# AwakeBuddy
 
 **A professional-grade utility designed to maintain system activity during critical workflows.**
 
@@ -14,8 +25,12 @@ AwakeBuddy leverages a **Native Windows Architecture**, built entirely on PowerS
 - **Dependency-Free**: Runs natively on any modern Windows 10/11 environment.
 - **Secure**: Transparent source code with no hidden binaries.
 
-![Application Demo](Media/Images/demo.gif)
-*Figure 1: The minimalist, dark-themed interface.*
+![Application Demo](Media/Images/awakeBuddy-Off.png)
+*Figure 1: OFF The minimalist, dark-themed interface.*
+
+![Application Demo](Media/Images/awakeBuddy-On.png)
+*Figure 2: ON The minimalist, dark-themed interface.*
+
 
 ## Core Capabilities
 *   **Intelligent State Maintenance**: Simulates `ScrollLock` input events to prevent operating system sleep timers without interfering with user workflow.
@@ -48,10 +63,6 @@ The solution is modularized for maintainability:
 *   **`Src/UI/`**: XAML definitions for `MainWindow` (Layout) and `Styles` (Theming).
 *   **`Src/Logic/`**: Background job logic for activity simulation.
 *   **`Assets/`**: Static resources.
-
-## Packaging
-To convert this project into an `.exe` for distribution (if not using the link above), usage of tools such as *PS2EXE* is recommended.
-
 
 ## Development
 This project uses a modular PowerShell + XAML structure.

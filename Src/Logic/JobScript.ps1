@@ -10,12 +10,11 @@ Add-Type -AssemblyName System.Windows.Forms
 while ($true) {
     if ($host.UI.RawUI.KeyAvailable) { break }
     
-    # Simulate User Input (ScrollLock Toggle)
+    # Simulate user input
     [System.Windows.Forms.SendKeys]::SendWait("{SCROLLLOCK}")
     Start-Sleep -Milliseconds 100
     [System.Windows.Forms.SendKeys]::SendWait("{SCROLLLOCK}")
     
     # Logging suppressed for performance
-    # Write-Output "Heartbeat..."
     Start-Sleep -Seconds $interval
 }

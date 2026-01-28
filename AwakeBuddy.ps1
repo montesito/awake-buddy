@@ -2,7 +2,7 @@ Add-Type -AssemblyName PresentationFramework
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
-# --- Native Interop (Fix Taskbar Icon) ---
+# Native Interop for Taskbar Icon
 $code = @"
     using System;
     using System.Runtime.InteropServices;
@@ -14,7 +14,7 @@ $code = @"
 Add-Type -TypeDefinition $code -Language CSharp
 [Win32]::SetCurrentProcessExplicitAppUserModelID("Montesito.AwakeBuddy")
 
-# --- Path Resolution ---
+# Path Resolution
 $rootPath = $PSScriptRoot
 $assetsPath = Join-Path $rootPath "Assets"
 $srcLogicPath = Join-Path $rootPath "Src\Logic"
@@ -26,28 +26,28 @@ $jobScriptPath = Join-Path $srcLogicPath "JobScript.ps1"
 $stylesPath = Join-Path $srcUIPath "Styles.xaml"
 $mainWindowPath = Join-Path $srcUIPath "MainWindow.xaml"
 
-# --- Dependency Validation ---
+# Dependency Validation
 if (!(Test-Path $stylesPath) -or !(Test-Path $mainWindowPath) -or !(Test-Path $jobScriptPath)) {
     Write-Error "Critical files missing in Src/ directory."
     exit
 }
 
-# --- XAML Component Initialization ---
+# XAML Component Initialization
 try {
-    # Load Style Resources
+    # Load style resources
     $stylesXml = [xml](Get-Content $stylesPath)
     $stylesReader = (New-Object System.Xml.XmlNodeReader $stylesXml)
     $stylesDic = [Windows.Markup.XamlReader]::Load($stylesReader)
 
-    # Load Main Window Markup
+    # Load main window markup
     $windowXml = [xml](Get-Content $mainWindowPath)
     $windowReader = (New-Object System.Xml.XmlNodeReader $windowXml)
     $window = [Windows.Markup.XamlReader]::Load($windowReader)
 
-    # Merge Styles into Window Resource Dictionary
+    # Merge styles
     $window.Resources.MergedDictionaries.Add($stylesDic)
 
-    # Set Window Icon (Prioritize PNG for WPF compatibility, fallback to ICO)
+    # Set window icon
     $iconToLoad = $null
     if (Test-Path $iconPngPath) { $iconToLoad = $iconPngPath }
     elseif (Test-Path $iconPath) { $iconToLoad = $iconPath }
@@ -72,18 +72,17 @@ catch {
     exit
 }
 
-# --- UI Element Binding ---
+# UI Element Binding
 $headerGrid = $window.FindName("HeaderGrid")
 $closeBtn = $window.FindName("CloseBtn")
 $toggleBtn = $window.FindName("ToggleBtn")
 $statusText = $window.FindName("StatusText")
 $consoleLog = $window.FindName("ConsoleLog")
 $logScroller = $window.FindName("LogScroller")
-# --- Asset Configuration ---
-# Vector graphics are embedded directly in the XAML markup for performance and scalability.
+# Asset Configuration
 
 
-# --- Logging Utilities ---
+# Logging Utilities
 function Write-Log {
     param([string]$message)
     $timestamp = Get-Date -Format "HH:mm:ss"
@@ -91,10 +90,10 @@ function Write-Log {
     if ($logScroller) { $logScroller.ScrollToBottom() }
 }
 
-# --- Job State Management ---
+# Job State Management
 $job = $null
 
-# --- Cleanup Logic ---
+# Cleanup Logic
 function Stop-ActivityJob {
     if ($job) {
         try {
@@ -106,39 +105,39 @@ function Stop-ActivityJob {
     }
 }
 
-# --- Event Declarations ---
+# Event Declarations
 
-# Window Drag Support
+# Window drag support
 $headerGrid.Add_MouseLeftButtonDown({
         $window.DragMove()
     })
 
-# Application Shutdown
+# Application shutdown
 $closeBtn.Add_Click({
         Stop-ActivityJob
         $window.Close()
     })
 
-# Service Toggle Logic
+# Service toggle logic
 $toggleBtn.Add_Click({
         if ($toggleBtn.Tag -eq "Off") {
-            # Enable Service
+            # Enable service
             $toggleBtn.Tag = "On"
             $statusText.Text = "Status: Active"
             $statusText.Foreground = [System.Windows.Media.Brushes]::Cyan
         
             Write-Log "Starting AwakeBuddy service..."
         
-            # Initialize Background Execution Job
+            # Initialize background job
             if ($job) { Remove-Job $job -Force -ErrorAction SilentlyContinue }
         
-            # Execute Logic Script in Isolated Process
+            # Execute logic script
             $job = Start-Job -FilePath $jobScriptPath -ArgumentList 60
             $Script:job = $job 
         
         }
         else {
-            # Disable Service
+            # Disable service
             $toggleBtn.Tag = "Off"
             $statusText.Text = "Status: Inactive"
             $statusText.Foreground = [System.Windows.Media.Brushes]::Gray
@@ -155,7 +154,7 @@ $toggleBtn.Add_Click({
         }
     })
 
-# Runspace Monitoring Timer
+# Runspace monitoring timer
 $timer = New-Object System.Windows.Threading.DispatcherTimer
 $timer.Interval = [TimeSpan]::FromSeconds(1)
 $timer.Add_Tick({
@@ -170,7 +169,7 @@ $timer.Add_Tick({
     })
 $timer.Start()
 
-# --- Native Interop (Fix Taskbar Icon) ---
+# Native Interop (Duplicate fix)
 $code = @"
     using System;
     using System.Runtime.InteropServices;
@@ -180,13 +179,13 @@ $code = @"
     }
 "@
 Add-Type -TypeDefinition $code -Language CSharp
-[Win32]::SetCurrentProcessExplicitAppUserModelID("Montesito.KeepAwake") # Unique ID forces taskbar to use our icon
+[Win32]::SetCurrentProcessExplicitAppUserModelID("Montesito.KeepAwake") # Unique ID forces taskbar to use the app icon
 
-# --- Resource Cleanup ---
+# Resource cleanup
 $window.Add_Closed({
         $timer.Stop()
         Stop-ActivityJob
     })
 
-# --- Application Entry Interface ---
+# Application entry
 $window.ShowDialog() | Out-Null

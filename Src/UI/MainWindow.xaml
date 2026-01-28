@@ -10,7 +10,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                 <!-- Placeholder for Programmatically Merged Dictionary -->
+                 <!-- Merged dictionary placeholder -->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -24,7 +24,7 @@
                 <RowDefinition Height="120"/>
             </Grid.RowDefinitions>
 
-            <!-- Header Layout Region -->
+            <!-- Header layout -->
             <Grid Grid.Row="0" Background="Transparent" Name="HeaderGrid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -36,7 +36,7 @@
                     <TextBlock Name="SubtitleText" Text="Stay Active" Foreground="{DynamicResource TextSecondary}" FontSize="14"/>
                 </StackPanel>
 
-                <!-- Vector Graphics: Application Logo -->
+                <!-- Application logo -->
                 <Viewbox Grid.Column="1" Width="50" Height="50" Margin="0,40,20,0" HorizontalAlignment="Right">
                     <Grid Width="100" Height="100">
                         <Grid.Resources>
@@ -46,21 +46,21 @@
                             </LinearGradientBrush>
                         </Grid.Resources>
                         
-                        <!-- Path: Outer Geometric Boundary -->
+                        <!-- Outer boundary -->
                         <Path Data="M 50,15 L 95,50 L 50,85 L 5,50 Z" 
                               Stroke="{StaticResource LogoGradient}" StrokeThickness="3" Fill="Transparent"/>
 
-                        <!-- Path: Inactive State Indicator (Left) -->
+                        <!-- Inactive state indicator -->
                         <Path Data="M 20,50 L 32,38 L 44,50 L 32,62 Z" 
                               Stroke="{StaticResource LogoGradient}" StrokeThickness="2" Fill="Transparent"/>
 
-                        <!-- Path: Active State Indicator (Right) -->
+                        <!-- Active state indicator -->
                         <Path Data="M 56,50 L 68,38 L 80,50 L 68,62 Z" 
                               Fill="{StaticResource LogoGradient}" Stroke="Transparent"/>
                     </Grid>
                 </Viewbox>
                 
-                <!-- Window Control: Close Button -->
+                <!-- Close button -->
                 <Button Name="CloseBtn" Content="r" FontFamily="Webdings" 
                         Foreground="{DynamicResource TextSecondary}" Background="Transparent" BorderThickness="0" 
                         HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" FontSize="18" Cursor="Hand"
@@ -86,7 +86,7 @@
                 </Button>
             </Grid>
 
-            <!-- Main Content Region -->
+            <!-- Main content -->
             <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <StackPanel HorizontalAlignment="Center">
                     <Button Name="ToggleBtn" Style="{DynamicResource ToggleButtonStyle}" Tag="Off" Cursor="Hand"/>
@@ -94,15 +94,15 @@
                 </StackPanel>
             </Grid>
 
-            <!-- Footer Region: Metadata -->
+            <!-- Footer metadata -->
             <StackPanel Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,10">
                 <TextBlock Text="&quot;The best way to predict the future is to invent it&quot; Alan Kay" 
                            Foreground="{DynamicResource TextSecondary}" FontSize="10" FontStyle="Italic" HorizontalAlignment="Center" Opacity="0.7"/>
-                <TextBlock Text="© Montesito" 
+                <TextBlock Text="by Montesito" 
                            Foreground="{DynamicResource TextSecondary}" FontSize="10" HorizontalAlignment="Center" Margin="0,2,0,0" Opacity="0.5"/>
             </StackPanel>
 
-            <!-- Debug Output Console -->
+            <!-- Debug console -->
             <Border Grid.Row="3" Background="{DynamicResource LogBackground}" CornerRadius="0,0,20,20" Margin="1" Padding="10">
                 <ScrollViewer Name="LogScroller" VerticalScrollBarVisibility="Auto">
                     <TextBlock Name="ConsoleLog" Text="Ready..." Foreground="{DynamicResource LogText}" FontFamily="Consolas" FontSize="12" TextWrapping="Wrap"/>
